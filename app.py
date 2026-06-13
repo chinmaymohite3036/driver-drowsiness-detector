@@ -5,7 +5,15 @@ from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
 import numpy as np
 import time
-import winsound
+try:
+    import winsound
+except ImportError:
+    class winsound:
+        SND_ALIAS = 0
+        SND_ASYNC = 0
+        @staticmethod
+        def PlaySound(sound, flags):
+            pass
 import math
 import os
 import urllib.request
