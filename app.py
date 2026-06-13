@@ -147,6 +147,27 @@ st.markdown("""
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header {visibility: hidden;}
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+        .main-header {
+            font-size: 1.6rem;
+            margin-top: -20px;
+            letter-spacing: 1px;
+        }
+        .metric-value {
+            font-size: 2.5rem;
+            margin: 10px 0;
+        }
+        .neuromorphic-panel {
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+        }
+        .log-box {
+            height: 200px;
+            font-size: 0.85rem;
+        }
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -293,7 +314,7 @@ with col1:
         mode=WebRtcMode.SENDRECV,
         rtc_configuration=RTC_CONFIGURATION,
         video_processor_factory=DrowsinessProcessor,
-        media_stream_constraints={"video": True, "audio": False},
+        media_stream_constraints={"video": {"facingMode": "user"}, "audio": False},
         async_processing=True,
     )
     st.markdown("</div>", unsafe_allow_html=True)
